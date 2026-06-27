@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,6 +8,21 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly year = new Date().getFullYear();
+  protected readonly menuOpen = signal(false);
+
+  protected readonly navLinks = [
+    { label: 'Início', href: '#inicio' },
+    { label: 'O Método', href: '#metodo' },
+    { label: 'Contato', href: '#contato' },
+  ];
+
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
 
   protected readonly methodItems = [
     {
