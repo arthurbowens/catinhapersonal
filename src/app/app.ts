@@ -10,8 +10,19 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   private readonly document = inject(DOCUMENT);
 
+  /** Atualize com DDI + DDD + número, somente dígitos (ex: 5511999999999) */
+  private readonly whatsappPhone = '553384216060';
+
   protected readonly year = new Date().getFullYear();
   protected readonly menuOpen = signal(false);
+
+  protected readonly whatsappUrl = this.createWhatsAppLink(
+    'Olá, Cátia! Vim pelo site e quero começar agora com o método Treino que Transforma. Pode me ajudar?',
+  );
+
+  protected readonly whatsappMethodUrl = this.createWhatsAppLink(
+    'Olá, Cátia! Vim pelo site e gostaria de conhecer melhor o método Treino que Transforma.',
+  );
 
   protected readonly navLinks = [
     { label: 'Início', href: '#inicio' },
@@ -37,6 +48,10 @@ export class App {
 
   protected closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  private createWhatsAppLink(message: string): string {
+    return `https://wa.me/${this.whatsappPhone}?text=${encodeURIComponent(message)}`;
   }
 
   protected readonly methodItems = [
