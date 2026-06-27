@@ -15,3 +15,106 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body.overflow-hidden {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.mobile-menu-backdrop {
+  animation: menu-fade-in 0.35s ease forwards;
+}
+
+.mobile-menu-panel {
+  animation: menu-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: -24px 0 64px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-menu-link {
+  animation: menu-link-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.menu-toggle {
+  background: rgba(24, 24, 27, 0.8);
+  border: 1px solid rgba(63, 63, 70, 0.8);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.menu-toggle:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
+.menu-toggle--open {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.menu-toggle__line {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #fafafa;
+  transform: translateX(-50%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, top 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-toggle__line:nth-child(1) {
+  top: 15px;
+}
+
+.menu-toggle__line:nth-child(2) {
+  top: 21px;
+}
+
+.menu-toggle__line:nth-child(3) {
+  top: 27px;
+}
+
+.menu-toggle--open .menu-toggle__line:nth-child(1) {
+  top: 21px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.menu-toggle--open .menu-toggle__line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0);
+}
+
+.menu-toggle--open .menu-toggle__line:nth-child(3) {
+  top: 21px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes menu-link-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

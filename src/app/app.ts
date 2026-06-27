@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostListener, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,14 +8,28 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
+  private readonly document = inject(DOCUMENT);
+
   protected readonly year = new Date().getFullYear();
   protected readonly menuOpen = signal(false);
 
   protected readonly navLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'O Método', href: '#metodo' },
+    { label: 'Como Funciona', href: '#como-funciona' },
     { label: 'Contato', href: '#contato' },
   ];
+
+  constructor() {
+    effect(() => {
+      this.document.body.classList.toggle('overflow-hidden', this.menuOpen());
+    });
+  }
+
+  @HostListener('document:keydown.escape')
+  protected onEscape(): void {
+    this.closeMenu();
+  }
 
   protected toggleMenu(): void {
     this.menuOpen.update((open) => !open);

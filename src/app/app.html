@@ -1,8 +1,16 @@
 <!-- Header -->
-<header class="fixed inset-x-0 top-0 z-50 border-b border-zinc-800/60 bg-zinc-950/90 backdrop-blur-md">
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300"
+  [class.border-b]="!menuOpen()"
+  [class.border-zinc-800/60]="!menuOpen()"
+  [class.bg-zinc-950/90]="!menuOpen()"
+  [class.backdrop-blur-md]="!menuOpen()"
+  [class.border-transparent]="menuOpen()"
+  [class.bg-transparent]="menuOpen()"
+>
   <div class="mx-auto max-w-7xl px-6 py-4 lg:px-10">
     <div class="flex items-center justify-between">
-      <a href="#inicio" class="flex flex-col leading-none" (click)="closeMenu()">
+      <a href="#inicio" class="relative z-[80] flex flex-col leading-none" (click)="closeMenu()">
         <span class="text-base font-bold tracking-tight text-white lg:text-lg">Cátia Soares</span>
         <span class="mt-1 text-[10px] font-semibold tracking-[0.25em] text-emerald-400 uppercase lg:text-[11px]">Personal</span>
       </a>
@@ -26,50 +34,85 @@
 
       <button
         type="button"
-        class="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-700 text-zinc-300 transition hover:border-emerald-500/50 hover:text-white md:hidden"
+        class="menu-toggle relative z-[80] flex h-11 w-11 items-center justify-center rounded-full md:hidden"
+        [class.menu-toggle--open]="menuOpen()"
         (click)="toggleMenu()"
         [attr.aria-expanded]="menuOpen()"
         aria-controls="mobile-menu"
-        aria-label="Abrir menu de navegação"
+        [attr.aria-label]="menuOpen() ? 'Fechar menu' : 'Abrir menu'"
       >
-        @if (menuOpen()) {
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M18 6 6 18M6 6l12 12"/>
-          </svg>
-        } @else {
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M4 7h16M4 12h16M4 17h16"/>
-          </svg>
-        }
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (menuOpen()) {
+  <button
+    type="button"
+    class="mobile-menu-backdrop fixed inset-0 z-[60] bg-zinc-950/70 backdrop-blur-md md:hidden"
+    (click)="closeMenu()"
+    aria-label="Fechar menu"
+  ></button>
+
+  <nav
+    id="mobile-menu"
+    class="mobile-menu-panel fixed inset-y-0 right-0 z-[70] flex w-full max-w-[320px] flex-col border-l border-zinc-800/80 bg-zinc-950 md:hidden"
+    aria-label="Menu mobile"
+  >
+    <div class="flex items-center justify-between border-b border-zinc-800/80 px-6 py-5">
+      <div class="flex flex-col leading-none">
+        <span class="text-sm font-bold text-white">Menu</span>
+        <span class="mt-1 text-[10px] font-semibold tracking-[0.2em] text-emerald-400 uppercase">Navegação</span>
+      </div>
+      <button
+        type="button"
+        class="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"
+        (click)="closeMenu()"
+        aria-label="Fechar menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
       </button>
     </div>
 
-    @if (menuOpen()) {
-      <nav
-        id="mobile-menu"
-        class="mt-4 flex flex-col gap-1 rounded-2xl border border-zinc-800 bg-zinc-900/95 p-3 backdrop-blur-sm md:hidden"
-        aria-label="Menu mobile"
-      >
-        @for (link of navLinks; track link.href) {
-          <a
-            [href]="link.href"
-            class="rounded-xl px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
-            (click)="closeMenu()"
-          >
-            {{ link.label }}
-          </a>
-        }
+    <div class="flex flex-1 flex-col px-6 py-8">
+      @for (link of navLinks; track link.href; let i = $index) {
         <a
-          href="#contato"
-          class="mt-2 rounded-xl bg-emerald-500 px-4 py-3 text-center text-sm font-bold text-zinc-950 transition hover:bg-emerald-400"
+          [href]="link.href"
+          class="mobile-menu-link group flex items-center gap-4 border-b border-zinc-800/60 py-5"
+          [style.animation-delay]="i * 60 + 'ms'"
           (click)="closeMenu()"
         >
-          Quero começar
+          <span class="text-xs font-semibold tracking-widest text-emerald-500/70">0{{ i + 1 }}</span>
+          <span class="text-lg font-semibold text-zinc-200 transition group-hover:text-white">{{ link.label }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-4 w-4 text-zinc-600 transition group-hover:translate-x-0.5 group-hover:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
         </a>
-      </nav>
-    }
-  </div>
-</header>
+      }
+    </div>
+
+    <div class="border-t border-zinc-800/80 p-6">
+      <p class="mb-4 text-xs leading-relaxed text-zinc-500">
+        Treinos personalizados para mulheres que desejam emagrecer com acompanhamento profissional.
+      </p>
+      <a
+        href="#contato"
+        class="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-sm font-bold tracking-wide text-zinc-950 uppercase transition hover:bg-emerald-400"
+        (click)="closeMenu()"
+      >
+        Quero começar agora
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+}
 
 <!-- Hero -->
 <section id="inicio" class="relative overflow-hidden bg-zinc-950 pt-24">
@@ -253,7 +296,7 @@
 </section>
 
 <!-- Como funciona -->
-<section class="bg-zinc-950 py-20">
+<section id="como-funciona" class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="mb-14 text-center">
       <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Como funciona</h2>
