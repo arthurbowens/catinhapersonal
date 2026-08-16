@@ -9,26 +9,29 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   private readonly document = inject(DOCUMENT);
-
-  /** Atualize com DDI + DDD + número, somente dígitos (ex: 5511999999999) */
   private readonly whatsappPhone = '553384216060';
 
   protected readonly year = new Date().getFullYear();
   protected readonly menuOpen = signal(false);
 
   protected readonly whatsappUrl = this.createWhatsAppLink(
-    'Olá, Cátia! Vim pelo site e quero começar agora com o método Treino que Transforma. Pode me ajudar?',
+    'Olá, Cátia! Vim pelo site e quero começar minha transformação com o protocolo Treino que Transforma.',
   );
 
   protected readonly whatsappMethodUrl = this.createWhatsAppLink(
-    'Olá, Cátia! Vim pelo site e gostaria de conhecer melhor o método Treino que Transforma.',
+    'Olá, Cátia! Vim pelo site e quero conhecer o protocolo. Pode me passar as informações?',
+  );
+
+  protected readonly whatsappAssessmentUrl = this.createWhatsAppLink(
+    'Olá, Cátia! Vim pelo site e quero fazer minha avaliação do protocolo Treino que Transforma.',
   );
 
   protected readonly navLinks = [
     { label: 'Início', href: '#inicio' },
-    { label: 'O Método', href: '#metodo' },
-    { label: 'Como Funciona', href: '#como-funciona' },
-    { label: 'Contato', href: '#contato' },
+    { label: 'Protocolo', href: '#metodo' },
+    { label: 'Resultados', href: '#resultados' },
+    { label: 'Como funciona', href: '#como-funciona' },
+    { label: 'Sobre', href: '#sobre' },
   ];
 
   constructor() {
@@ -54,81 +57,168 @@ export class App {
     return `https://wa.me/${this.whatsappPhone}?text=${encodeURIComponent(message)}`;
   }
 
-  protected readonly methodItems = [
-    {
-      title: 'Treinos Personalizados',
-      description:
-        'Cada treino é planejado de acordo com seu objetivo, rotina, limitações e nível de condicionamento.',
-      icon: 'dumbbell',
-    },
-    {
-      title: 'Estratégia para Emagrecimento',
-      description:
-        'Exercícios organizados para aumentar o gasto calórico, preservar massa muscular e acelerar seus resultados.',
-      icon: 'flame',
-    },
-    {
-      title: 'Acompanhamento Individual',
-      description:
-        'Você recebe suporte durante todo o processo para manter a consistência, ajustar o plano quando necessário e continuar evoluindo.',
-      icon: 'users',
-    },
-    {
-      title: 'Evolução Contínua',
-      description:
-        'Seu treino acompanha sua evolução para que seu corpo continue respondendo e você não fique estagnada.',
-      icon: 'trending',
-    },
+  protected readonly results = [
+    { src: '/resultado1.jpeg', type: 'image' as const, label: 'Resultado 1' },
+    { src: '/resultado2.jpeg', type: 'image' as const, label: 'Resultado 2' },
+    { src: '/resultado3.mp4', type: 'video' as const, label: 'Resultado 3' },
+    { src: '/resultado4.mp4', type: 'video' as const, label: 'Resultado 4' },
+    { src: '/resultado5.mp4', type: 'video' as const, label: 'Resultado 5' },
+    { src: '/resultado6.mp4', type: 'video' as const, label: 'Resultado 6' },
+    { src: '/resultado7.mp4', type: 'video' as const, label: 'Resultado 7' },
+    { src: '/resultado8.mp4', type: 'video' as const, label: 'Resultado 8' },
+    { src: '/resultado9.mp4', type: 'video' as const, label: 'Resultado 9' },
+    { src: '/resultado10.mp4', type: 'video' as const, label: 'Resultado 10' },
   ];
 
-  protected readonly forYouItems = [
-    'Quer emagrecer de forma saudável.',
-    'Deseja perder gordura sem dietas malucas.',
-    'Quer definir o corpo.',
-    'Vive começando e desistindo dos treinos.',
-    'Precisa de alguém acompanhando sua evolução.',
-    'Busca mais autoestima, disposição e qualidade de vida.',
+  protected scrollResults(direction: 1 | -1): void {
+    const track = this.document.getElementById('results-carousel');
+    if (!track) return;
+    const amount = Math.min(track.clientWidth * 0.85, 360);
+    track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+  }
+
+  protected readonly recognitionItems = [
+    'Começado várias dietas e abandonado',
+    'Emagrecido e recuperado o peso',
+    'Comprado roupas esperando que um dia voltassem a servir',
+    'Evitado fotos ou determinados tipos de roupa',
+    'Se olhado no espelho e não reconhecido o corpo que vê',
+    'Sentido vergonha de tirar a camisa, colocar um biquíni ou usar roupa mais justa',
+    'Começado a academia várias vezes e parado',
+    'Usado a comida como recompensa em momentos de ansiedade',
   ];
 
-  protected readonly achievements = [
-    'Redução do percentual de gordura.',
-    'Mais definição muscular.',
-    'Mais disposição para o dia a dia.',
-    'Treinos adaptados à sua rotina.',
-    'Hábitos que realmente funcionam.',
-    'Mais confiança ao olhar no espelho.',
+  protected readonly cycleBad = ['COMEÇO', 'EMAGREÇO', 'RELAXO', 'ENGORDO', 'ME CULPO', 'RECOMEÇO'];
+  protected readonly cycleGood = ['DECISÃO', 'ESTRATÉGIA', 'CONSTÂNCIA', 'EVOLUÇÃO', 'NOVOS HÁBITOS'];
+
+  protected readonly protocolOutcomes = [
+    'Emagrecimento',
+    'Redução de medidas',
+    'Condicionamento físico',
+    'Mais disposição',
+    'Melhora dos hábitos',
+    'Consistência',
+    'Confiança',
+    'Autoestima',
+  ];
+
+  protected readonly protocolIncludes = [
+    'Anamnese e avaliação inicial',
+    'Avaliação da composição corporal',
+    'Treinamento individualizado e adaptado ao seu nível',
+    'Acompanhamento próximo da sua evolução',
+    'Definição de metas e acompanhamento periódico',
+    'Estratégias para organização da rotina e construção de novos hábitos',
+    'Monitoramento de peso, medidas e evolução corporal',
+    'Orientação para melhora da constância e adesão ao processo',
+  ];
+
+  protected readonly pillars = [
+    {
+      title: 'Não dependa da motivação. Construa disciplina.',
+      body: 'Motivação é importante para começar. Disciplina é o que sustenta o processo quando a motivação desaparece. Uma refeição fora do planejado não precisa virar uma semana inteira fora. Um treino perdido não precisa virar um mês sem treinar. Resultado não exige perfeição — exige consistência.',
+    },
+    {
+      title: 'Pare de se sabotar.',
+      body: '“Hoje eu mereço.” “Amanhã eu compenso.” “Só esse final de semana.” “Na segunda eu volto.” Essas pequenas negociações, quando se repetem, afastam você do resultado. O trabalho é desenvolver responsabilidade, organização, constância e consciência sobre as escolhas.',
+    },
+    {
+      title: 'Treino não é castigo.',
+      body: 'Você não precisa treinar para pagar pelo que comeu. Treinar com estratégia é diferente de simplesmente se cansar. O objetivo é fazer com que o exercício deixe de ser algo que você “precisa suportar” e passe a fazer parte da vida que você está construindo.',
+    },
   ];
 
   protected readonly steps = [
     {
       step: '1',
-      title: 'Avaliação',
-      description: 'Entendo seus objetivos, rotina e histórico.',
+      title: 'Avaliação inicial',
+      description:
+        'Conhecemos seu ponto de partida, objetivos, rotina, histórico e principais dificuldades.',
     },
     {
       step: '2',
-      title: 'Planejamento',
-      description: 'Montamos um programa totalmente personalizado.',
+      title: 'Estratégia individual',
+      description:
+        'O acompanhamento é direcionado às necessidades e aos objetivos identificados no processo.',
     },
     {
       step: '3',
-      title: 'Acompanhamento',
-      description: 'Você recebe suporte constante durante toda sua evolução.',
+      title: 'Treinamento direcionado',
+      description:
+        'O exercício é estruturado para contribuir com sua evolução física, condicionamento e composição corporal.',
     },
     {
       step: '4',
-      title: 'Resultados',
+      title: 'Organização da rotina',
       description:
-        'Com disciplina, estratégia e consistência, os resultados aparecem de forma progressiva e duradoura.',
+        'Estratégias para o processo existir na vida real: trabalho, família, compromissos e imprevistos.',
+    },
+    {
+      step: '5',
+      title: 'Acompanhamento',
+      description:
+        'Sua evolução é acompanhada para identificar dificuldades, ajustar estratégias e evitar o abandono.',
+    },
+    {
+      step: '6',
+      title: 'Evolução',
+      description:
+        'Acompanhamos peso, medidas, desempenho, hábitos e evolução corporal de acordo com cada caso.',
     },
   ];
 
-  protected readonly whyChoose = [
-    'Atendimento individualizado.',
-    'Treinos personalizados.',
-    'Suporte próximo.',
-    'Estratégia focada em emagrecimento feminino.',
-    'Método estruturado.',
-    'Evolução acompanhada de perto.',
+  protected readonly buildItems = [
+    'Voltar a vestir aquela roupa que você gosta',
+    'Olhar uma foto sua e gostar do que vê',
+    'Ter disposição para trabalhar e aproveitar a família',
+    'Sentir o corpo mais forte',
+    'Subir uma escada sem o mesmo cansaço',
+    'Perceber as medidas diminuindo',
+    'Escolher roupa pelo que gostou — e não só pelo que serviu',
+    'Se olhar no espelho com orgulho',
+    'Recuperar a confiança',
+    'Perceber que você conseguiu voltar a cuidar de si',
+  ];
+
+  protected readonly objections = [
+    {
+      q: 'Mas eu já tentei várias vezes...',
+      a: 'Talvez seja exatamente por isso que você chegou até aqui. Você não precisa provar que consegue fazer tudo sozinho. Se aquilo que você vinha fazendo estivesse funcionando de forma sustentável, provavelmente não estaria procurando uma solução diferente agora.',
+    },
+    {
+      q: 'Eu não tenho tempo.',
+      a: 'Talvez você não precise encontrar horas sobrando. Precisa aprender a organizar prioridades dentro da vida que realmente possui.',
+    },
+    {
+      q: 'Eu não tenho disciplina.',
+      a: 'Disciplina não é algo reservado para algumas pessoas. Ela é construída através de decisões repetidas.',
+    },
+    {
+      q: 'Tenho medo de começar e desistir novamente.',
+      a: 'Então não comece pensando nos próximos seis meses. Comece tomando a primeira decisão.',
+    },
+  ];
+
+  protected readonly faqs = [
+    {
+      q: 'O protocolo é para homens e mulheres?',
+      a: 'Sim. O acompanhamento é destinado a homens e mulheres que buscam emagrecimento, transformação corporal, melhora dos hábitos e maior qualidade de vida, respeitando as necessidades individuais.',
+    },
+    {
+      q: 'Preciso já estar treinando?',
+      a: 'Não necessariamente. Seu ponto de partida será considerado na estratégia.',
+    },
+    {
+      q: 'E se eu já tentei emagrecer outras vezes?',
+      a: 'Isso não impede um novo processo. Pelo contrário: entender onde as tentativas anteriores falharam pode ajudar na construção de uma estratégia mais adequada.',
+    },
+    {
+      q: 'Vou precisar mudar toda a minha vida de uma vez?',
+      a: 'Não. Mudanças sustentáveis são construídas progressivamente. O objetivo é desenvolver uma rotina que você consiga manter.',
+    },
+    {
+      q: 'Os resultados são iguais para todo mundo?',
+      a: 'Não. Cada organismo, rotina, histórico e nível de adesão são diferentes. Por isso, não existe garantia de uma quantidade específica de quilos ou medidas.',
+    },
   ];
 }

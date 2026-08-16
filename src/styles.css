@@ -118,3 +118,30 @@ body.overflow-hidden {
     transform: translateX(0);
   }
 }
+
+.results-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.results-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.results-carousel__slide {
+  width: min(78vw, 280px);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .results-carousel__slide {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .results-carousel__slide {
+    width: 320px;
+  }
+}

@@ -17,10 +17,7 @@
 
       <nav class="hidden items-center gap-8 md:flex" aria-label="Menu principal">
         @for (link of navLinks; track link.href) {
-          <a
-            [href]="link.href"
-            class="text-sm font-medium text-zinc-400 transition hover:text-white"
-          >
+          <a [href]="link.href" class="text-sm font-medium text-zinc-400 transition hover:text-white">
             {{ link.label }}
           </a>
         }
@@ -30,7 +27,7 @@
           rel="noopener noreferrer"
           class="rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-400"
         >
-          Quero começar
+          Quero transformar
         </a>
       </nav>
 
@@ -91,61 +88,57 @@
         >
           <span class="text-xs font-semibold tracking-widest text-emerald-500/70">0{{ i + 1 }}</span>
           <span class="text-lg font-semibold text-zinc-200 transition group-hover:text-white">{{ link.label }}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-4 w-4 text-zinc-600 transition group-hover:translate-x-0.5 group-hover:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
         </a>
       }
     </div>
 
     <div class="border-t border-zinc-800/80 p-6">
-      <p class="mb-4 text-xs leading-relaxed text-zinc-500">
-        Treinos personalizados para mulheres que desejam emagrecer com acompanhamento profissional.
-      </p>
       <a
         [href]="whatsappUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-sm font-bold tracking-wide text-zinc-950 uppercase transition hover:bg-emerald-400"
+        class="flex w-full items-center justify-center rounded-full bg-emerald-500 px-6 py-3.5 text-sm font-bold tracking-wide text-zinc-950 uppercase transition hover:bg-emerald-400"
         (click)="closeMenu()"
       >
-        Quero começar agora
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
+        Quero começar minha transformação
       </a>
     </div>
   </nav>
 }
 
-<!-- Hero -->
+<!-- 1. HERO -->
 <section id="inicio" class="relative overflow-hidden bg-zinc-950 pt-24">
   <div class="pointer-events-none absolute inset-0">
     <div class="absolute -left-32 top-0 h-[600px] w-[600px] rounded-full bg-emerald-900/20 blur-3xl"></div>
     <div class="absolute -right-32 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-600/10 blur-3xl"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.08),transparent_60%)]"></div>
   </div>
 
   <div class="relative mx-auto max-w-7xl px-6 pb-6 lg:px-10 lg:pb-8">
     <div class="mt-8 flex flex-col items-start gap-10 pb-12 lg:mt-10 lg:flex-row lg:gap-16 lg:pb-16">
       <div class="flex flex-1 flex-col items-start text-left">
+        <p class="mb-4 text-xs font-semibold tracking-[0.2em] text-emerald-400 uppercase sm:text-sm">
+          Eu não transformo apenas corpos. Transformo vidas.
+        </p>
+
         <h1 class="text-4xl leading-tight font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
           Treino que<br />
           <span class="bg-gradient-to-r from-emerald-400 to-emerald-200 bg-clip-text text-transparent">Transforma</span>
         </h1>
 
-        <p class="mt-4 text-lg font-semibold text-emerald-400 sm:text-xl">Especialista em Emagrecimento Feminino</p>
+        <p class="mt-4 text-lg font-semibold text-emerald-400 sm:text-xl">
+          Especialista em Emagrecimento e Transformação Corporal
+        </p>
 
-        <p class="mt-5 max-w-lg text-xl leading-relaxed font-medium text-zinc-300 sm:text-2xl">
-          Transforme seu corpo, recupere sua autoestima e conquiste resultados reais.
+        <p class="mt-5 max-w-lg text-xl leading-relaxed font-medium text-zinc-200 sm:text-2xl">
+          A sua transformação pode começar agora.
         </p>
 
         <p class="mt-5 max-w-lg text-base leading-relaxed text-zinc-400">
-          Treinos personalizados para mulheres que desejam emagrecer, definir o corpo e criar hábitos que geram resultados duradouros.
+          Minha missão é ajudar homens e mulheres cansados de tentar emagrecer e não manter os resultados — a recuperar saúde, disposição, confiança e o prazer de se olhar no espelho novamente.
         </p>
 
-        <p class="mt-4 text-sm font-medium text-zinc-500">
-          Treinos personalizados · Acompanhamento próximo · Método validado
+        <p class="mt-4 max-w-lg text-sm leading-relaxed text-zinc-500">
+          Aqui você encontra um protocolo individual com estratégia, acompanhamento e mudança de hábitos. Não é só perder peso: é transformar corpo, saúde e vida.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4">
@@ -153,20 +146,17 @@
             [href]="whatsappUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-8 py-3.5 text-sm font-bold tracking-wide text-zinc-950 uppercase shadow-lg shadow-emerald-500/25 transition hover:bg-emerald-400"
+            class="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-bold tracking-wide text-zinc-950 uppercase shadow-lg shadow-emerald-500/25 transition hover:bg-emerald-400"
           >
-            Quero começar agora
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
+            Quero transformar meu corpo e minha saúde
           </a>
           <a
             [href]="whatsappMethodUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-8 py-3.5 text-sm font-semibold tracking-wide text-zinc-300 uppercase transition hover:border-emerald-500/50 hover:text-white"
+            class="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-7 py-3.5 text-sm font-semibold tracking-wide text-zinc-300 uppercase transition hover:border-emerald-500/50 hover:text-white"
           >
-            Conhecer o método
+            Conhecer o protocolo
           </a>
         </div>
       </div>
@@ -177,15 +167,11 @@
           <div class="relative overflow-hidden rounded-3xl ring-1 ring-emerald-500/20">
             <img
               src="/foto1.jpg"
-              alt="Cátia Soares - Especialista em Emagrecimento Feminino"
+              alt="Cátia Soares"
               class="aspect-[3/4] w-full object-cover object-top"
               width="600"
               height="800"
             />
-            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent p-6">
-              <p class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Treino que Transforma</p>
-              <p class="mt-1 text-lg font-bold text-white">Resultados reais e duradouros</p>
-            </div>
           </div>
         </div>
       </div>
@@ -193,126 +179,280 @@
   </div>
 </section>
 
-<!-- Empatia -->
+<!-- 2. RECONHECIMENTO -->
 <section class="border-y border-zinc-800 bg-zinc-900 py-20">
-  <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
-    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Você não precisa passar por isso sozinha.</h2>
-    <div class="mt-8 space-y-5 text-left text-base leading-relaxed text-zinc-400">
-      <p>
-        Talvez você já tenha tentado diversas dietas, começou a treinar várias vezes ou até perdeu peso, mas acabou recuperando tudo novamente.
-      </p>
-      <p class="font-medium text-zinc-300">O problema não é falta de força de vontade.</p>
-      <p>
-        Na maioria das vezes, o que falta é um método estruturado, acompanhamento e alguém que saiba exatamente como conduzir o seu processo.
-      </p>
-      <p>
-        Foi pensando nisso que desenvolvi um acompanhamento focado em mulheres que desejam emagrecer de forma consistente, saudável e sustentável.
-      </p>
-      <p class="font-medium text-emerald-400">Meu objetivo é ajudar você a conquistar resultados que realmente permaneçam.</p>
+  <div class="mx-auto max-w-3xl px-6 lg:px-10">
+    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Você se reconhece aqui?</h2>
+    <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-400">
+      <p>Você começa motivado na segunda-feira...</p>
+      <p>Mas a rotina aperta. O cansaço chega. Você falta ao treino.</p>
+      <p>Sai da alimentação uma vez e pensa: <span class="text-zinc-300">“já estraguei tudo mesmo...”</span></p>
+      <p>Então vem a culpa. Você promete que amanhã recomeça. Depois, na próxima segunda. Depois, no próximo mês.</p>
+      <p class="font-medium text-emerald-400">E o ciclo continua.</p>
+    </div>
+
+    <p class="mt-10 text-sm font-semibold tracking-widest text-zinc-500 uppercase">Talvez você já tenha:</p>
+    <ul class="mt-4 space-y-3">
+      @for (item of recognitionItems; track item) {
+        <li class="flex items-start gap-3">
+          <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span>
+          <span class="text-zinc-300">{{ item }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 3. ALÉM DA BALANÇA -->
+<section class="bg-zinc-950 py-20">
+  <div class="mx-auto max-w-3xl px-6 lg:px-10">
+    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+      Emagrecer não é apenas<br />
+      <span class="text-emerald-400">“fechar a boca”</span>
+    </h2>
+    <p class="mt-6 text-base leading-relaxed text-zinc-400">
+      O excesso de peso não acontece isolado da sua vida. Existe rotina, hábitos, sedentarismo, finais de semana que viram desculpas, o “só hoje”, falta de planejamento e a dificuldade de manter disciplina quando a motivação desaparece.
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-zinc-300">
+      Por isso uma transformação consistente precisa olhar além da balança.
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-zinc-400">
+      Você não precisa viver eternamente no ciclo:
+    </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-2xl border border-red-500/20 bg-zinc-900/60 p-5">
+        <p class="text-xs font-semibold tracking-widest text-red-400/80 uppercase">O ciclo que trava</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          @for (item of cycleBad; track item; let last = $last) {
+            <span class="rounded-md bg-zinc-800 px-2.5 py-1 text-xs font-semibold text-zinc-300">{{ item }}</span>
+            @if (!last) {
+              <span class="self-center text-zinc-600">→</span>
+            }
+          }
+        </div>
+      </div>
+      <div class="rounded-2xl border border-emerald-500/30 bg-zinc-900/60 p-5">
+        <p class="text-xs font-semibold tracking-widest text-emerald-400 uppercase">O caminho que construímos</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          @for (item of cycleGood; track item; let last = $last) {
+            <span class="rounded-md bg-emerald-500/15 px-2.5 py-1 text-xs font-semibold text-emerald-300">{{ item }}</span>
+            @if (!last) {
+              <span class="self-center text-emerald-700">→</span>
+            }
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Método -->
-<section id="metodo" class="bg-zinc-950 py-20">
+<!-- 4. PROTOCOLO -->
+<section id="metodo" class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="mb-14 max-w-3xl">
-      <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O Método</span>
-      <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Treino que Transforma</h2>
-      <p class="mt-4 text-lg font-medium text-zinc-300">Muito mais do que um treino.</p>
-      <p class="mt-3 text-zinc-400 leading-relaxed">
-        É um acompanhamento pensado para acelerar sua evolução, aumentar sua confiança e fazer você criar uma rotina que funcione de verdade.
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O Protocolo</span>
+      <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+        Não é apenas sobre perder peso.<br />
+        <span class="text-emerald-400">É sobre mudar a direção da sua vida.</span>
+      </h2>
+      <p class="mt-4 text-lg font-semibold text-zinc-200">Um protocolo que olha para você de forma integrada.</p>
+      <p class="mt-6 text-base leading-relaxed text-zinc-400">
+        O Protocolo Individual de Emagrecimento foi pensado para homens e mulheres que desejam sair das tentativas aleatórias e começar um processo estruturado de transformação corporal.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-zinc-400">
+        Emagrecimento não se resume a comer menos e treinar mais. Por trás de cada pessoa existe uma história, uma rotina, dificuldades, hábitos, tentativas anteriores, objetivos e necessidades diferentes.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-zinc-300">
+        Por isso, o protocolo começa com uma avaliação individualizada, para entendermos seu ponto de partida e definirmos uma estratégia segura e direcionada aos seus objetivos.
+      </p>
+      <p class="mt-6 text-sm font-semibold text-zinc-300">O objetivo é desenvolver uma rotina que favoreça:</p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      @for (item of protocolOutcomes; track item) {
+        <span class="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-300">
+          {{ item }}
+        </span>
+      }
+    </div>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O protocolo pode envolver</p>
+        <ul class="mt-5 space-y-3">
+          @for (item of protocolIncludes; track item) {
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="text-sm text-zinc-300">{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="space-y-4 self-start">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/50 p-6">
+          <p class="text-sm leading-relaxed text-zinc-400">
+            Exames laboratoriais, condutas nutricionais, suplementação, medicamentos, terapias injetáveis ou outras intervenções clínicas são avaliados e prescritos exclusivamente pelo profissional legalmente habilitado, quando indicados.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6">
+          <p class="text-lg font-bold text-white">Não é uma receita pronta.</p>
+          <p class="mt-2 text-base font-semibold text-emerald-400">É uma estratégia construída para você.</p>
+          <a
+            [href]="whatsappAssessmentUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-bold tracking-wide text-zinc-950 uppercase transition hover:bg-emerald-400"
+          >
+            Quero fazer minha avaliação
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. MULTIPROFISSIONAL -->
+<section id="multiprofissional" class="bg-zinc-950 py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Parceria</span>
+      <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+        Emagrecimento com uma visão multiprofissional
+      </h2>
+      <p class="mt-6 text-base leading-relaxed text-zinc-400">
+        Em determinados casos, emagrecer exige olhar além do treino e dos hábitos.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-zinc-400">
+        Por isso, o protocolo conta com a possibilidade de avaliação médica especializada em parceria, quando houver necessidade clínica.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-zinc-300">
+        O objetivo é proporcionar um acompanhamento mais completo, respeitando as atribuições de cada profissional.
       </p>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2">
-      @for (item of methodItems; track item.title) {
-        <div class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7 transition hover:border-emerald-500/40">
-          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/20">
-            @switch (item.icon) {
-              @case ('dumbbell') {
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6.5 6.5h11M6.5 17.5h11M4 9v6M20 9v6M8 6.5V4M16 6.5V4M8 17.5V20M16 17.5V20"/>
-                </svg>
-              }
-              @case ('flame') {
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.5-1.5-3-1.5-5.5 0 0 3-2 5.5-2s5.5 2 5.5 2c0 2.5-1.5 4.5-1.5 5.5a2.5 2.5 0 0 0 2.5 2.5"/>
-                  <path d="M12 22c4 0 7-2.5 7-6.5 0-2.5-1.5-4-3-5.5-1 1.5-2.5 3-4 3s-3-1.5-4-3c-1.5 1.5-3 3-3 5.5C5 19.5 8 22 12 22z"/>
-                </svg>
-              }
-              @case ('users') {
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              }
-              @case ('trending') {
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 7 13.5 15.5 8.5 10.5 2 17"/>
-                  <path d="M16 7h6v6"/>
-                </svg>
-              }
-            }
+    <div class="mt-14 grid items-center gap-10 lg:grid-cols-2">
+      <div class="relative overflow-hidden rounded-3xl bg-[#d6c9b8] ring-1 ring-zinc-700/50">
+        <img
+          src="/fotomedica.jpeg"
+          alt="Dra. Isis Santiago Brandão"
+          class="aspect-[3/4] w-full object-cover object-top"
+        />
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Avaliação médica quando indicada</p>
+        <p class="mt-4 text-base leading-relaxed text-zinc-400">
+          A médica parceira poderá avaliar individualmente aspectos clínicos e metabólicos, histórico de saúde, exames laboratoriais e, quando houver indicação médica, definir as condutas terapêuticas adequadas.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-zinc-500">
+          Medicamentos e terapias injetáveis não são utilizados de forma automática no protocolo. Qualquer indicação depende de avaliação médica individualizada.
+        </p>
+
+        <div class="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
+          <p class="text-xl font-bold text-white">Dra. Isis Santiago Brandão</p>
+          <p class="mt-1 text-sm font-medium text-emerald-400">Médica · CRM/MG 109386</p>
+          <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+            <li>• Pós-graduanda em Endocrinologia e Metabologia</li>
+            <li>• Imersão em suplementação de vitaminas, nutrição e longevidade</li>
+            <li>• Pós-graduada em Medicina Familiar — UFMG</li>
+          </ul>
+        </div>
+
+        <p class="mt-8 text-sm font-semibold tracking-wide text-zinc-300 uppercase">
+          Treino · Hábitos · Acompanhamento · Suporte multiprofissional
+        </p>
+        <p class="mt-2 text-zinc-500">Uma estratégia construída de acordo com as necessidades de cada pessoa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. RESULTADOS -->
+<section id="resultados" class="border-y border-zinc-800 bg-zinc-900 py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="flex items-end justify-between gap-4">
+      <div class="max-w-2xl">
+        <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Resultados</span>
+        <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+          Não acredite apenas no que eu digo.<br />
+          <span class="text-emerald-400">Veja quem decidiu começar.</span>
+        </h2>
+        <p class="mt-4 text-zinc-400">
+          Quem segue o protocolo conquista muito mais do que emagrecimento: autoestima, confiança, disposição e a sensação de voltar a se sentir bem com o próprio corpo.
+        </p>
+      </div>
+
+      <div class="hidden shrink-0 gap-2 sm:flex">
+        <button
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition hover:border-emerald-500/50 hover:text-white"
+          (click)="scrollResults(-1)"
+          aria-label="Anterior"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition hover:border-emerald-500/50 hover:text-white"
+          (click)="scrollResults(1)"
+          aria-label="Próximo"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="results-carousel" class="results-carousel mt-10 flex gap-4 overflow-x-auto pb-4">
+      @for (item of results; track item.src; let i = $index) {
+        <article class="results-carousel__slide shrink-0 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950">
+          @if (item.type === 'image') {
+            <img [src]="item.src" [alt]="item.label" class="aspect-[3/4] w-full object-cover" loading="lazy" />
+          } @else {
+            <video [src]="item.src" class="aspect-[3/4] w-full object-cover" controls playsinline preload="metadata"></video>
+          }
+          <div class="border-t border-zinc-800 px-4 py-3">
+            <p class="text-xs font-semibold tracking-widest text-emerald-400 uppercase">Transformação {{ i + 1 }}</p>
           </div>
+        </article>
+      }
+    </div>
+    <p class="mt-4 text-center text-sm text-zinc-500 sm:hidden">Deslize para o lado →</p>
+  </div>
+</section>
+
+<!-- 7. PILARES -->
+<section class="bg-zinc-950 py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="mb-12 max-w-2xl">
+      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que sustenta a transformação</h2>
+    </div>
+    <div class="grid gap-6 lg:grid-cols-3">
+      @for (item of pillars; track item.title) {
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
           <h3 class="text-lg font-bold text-white">{{ item.title }}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-400">{{ item.description }}</p>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.body }}</p>
         </div>
       }
     </div>
   </div>
 </section>
 
-<!-- Para você -->
-<section class="bg-zinc-900 py-20">
-  <div class="mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="grid gap-12 lg:grid-cols-2">
-      <div>
-        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Esse acompanhamento é para você que...</h2>
-        <ul class="mt-8 space-y-4">
-          @for (item of forYouItems; track item) {
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </span>
-              <span class="text-zinc-300">{{ item }}</span>
-            </li>
-          }
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que você pode conquistar</h2>
-        <ul class="mt-8 space-y-4">
-          @for (item of achievements; track item) {
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </span>
-              <span class="text-zinc-300">{{ item }}</span>
-            </li>
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Como funciona -->
-<section id="como-funciona" class="bg-zinc-950 py-20">
+<!-- 8. COMO FUNCIONA -->
+<section id="como-funciona" class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="mb-14 text-center">
-      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Como funciona</h2>
+      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Como funciona?</h2>
+      <p class="mt-3 text-zinc-400">O processo começa entendendo você.</p>
     </div>
-
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       @for (item of steps; track item.step) {
-        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-6">
           <span class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-sm font-extrabold text-zinc-950">
             {{ item.step }}
           </span>
@@ -324,31 +464,19 @@
   </div>
 </section>
 
-<!-- Resultados Reais -->
-<section class="border-y border-zinc-800 bg-zinc-900 py-20">
-  <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
-    <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Transformações</span>
-    <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Resultados Reais</h2>
-    <div class="mt-8 space-y-5 text-base leading-relaxed text-zinc-400">
-      <p>
-        As alunas que seguem o método conquistam muito mais do que emagrecimento. Elas recuperam autoestima, confiança, disposição e voltam a se sentir bem com o próprio corpo.
-      </p>
-      <p class="font-medium text-zinc-300">
-        Cada transformação é única, respeitando o tempo e a realidade de cada pessoa.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Por que escolher -->
+<!-- 9. O QUE CONSTRUIR -->
 <section class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Por que escolher meu acompanhamento?</h2>
-    <ul class="mt-10 grid gap-4 sm:grid-cols-2">
-      @for (item of whyChoose; track item) {
-        <li class="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/50 px-5 py-4">
-          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que você pode construir nesse processo?</h2>
+    <p class="mt-4 text-zinc-400">
+      Não quero que você pense apenas: <span class="text-zinc-300">“Quantos quilos vou perder?”</span>
+      Quero que imagine como seria:
+    </p>
+    <ul class="mt-8 space-y-3">
+      @for (item of buildItems; track item) {
+        <li class="flex items-start gap-3">
+          <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
             </svg>
           </span>
@@ -359,30 +487,118 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- 10. SOBRE -->
+<section id="sobre" class="border-y border-zinc-800 bg-zinc-900 py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="relative overflow-hidden rounded-3xl ring-1 ring-zinc-800">
+        <img src="/foto2.jpeg" alt="Cátia Soares de Oliveira" class="aspect-[4/5] w-full object-cover object-top" />
+      </div>
+      <div>
+        <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Quem vai acompanhar você?</span>
+        <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Cátia Soares de Oliveira</h2>
+        <p class="mt-4 text-sm text-zinc-400">
+          Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição
+        </p>
+        <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-400">
+          <p class="font-medium text-zinc-200">Minha missão profissional vai muito além de prescrever exercícios.</p>
+          <p class="text-lg font-semibold text-emerald-400">Eu sou apaixonada por transformação.</p>
+          <p>
+            Transformação de corpos, hábitos, autoestima, saúde — e, principalmente, de vidas. Por trás de cada corpo que deseja mudar, existe alguém querendo recuperar confiança, saúde, disposição ou simplesmente a sensação de voltar a gostar de si.
+          </p>
+          <p class="font-medium text-zinc-300">É por isso que faço o que faço.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. OBJEÇÕES -->
+<section class="bg-zinc-950 py-20">
+  <div class="mx-auto max-w-3xl px-6 lg:px-10">
+    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Ainda tem resistência?</h2>
+    <div class="mt-10 space-y-4">
+      @for (item of objections; track item.q) {
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+          <h3 class="text-base font-bold text-emerald-400">{{ item.q }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.a }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 12. DECISÃO -->
+<section class="border-y border-zinc-800 bg-zinc-900 py-20">
+  <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
+    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Sua transformação começa com uma decisão.</h2>
+    <div class="mt-6 space-y-3 text-zinc-400">
+      <p>Você não precisa esperar a próxima segunda-feira.</p>
+      <p>Não precisa esperar o próximo mês.</p>
+      <p>Não precisa esperar a motivação aparecer.</p>
+      <p class="text-lg font-semibold text-emerald-400">Você precisa decidir começar.</p>
+    </div>
+    <a
+      [href]="whatsappMethodUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-8 py-4 text-sm font-bold tracking-wide text-zinc-950 uppercase shadow-lg shadow-emerald-500/25 transition hover:bg-emerald-400"
+    >
+      Quero conhecer o protocolo
+    </a>
+    <p class="mt-4 text-sm text-zinc-500">
+      Ao clicar, você será direcionado para o atendimento para receber as informações e entender se o protocolo faz sentido para o seu objetivo.
+    </p>
+  </div>
+</section>
+
+<!-- 13. FAQ -->
+<section id="faq" class="bg-zinc-950 py-20">
+  <div class="mx-auto max-w-3xl px-6 lg:px-10">
+    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Dúvidas frequentes</h2>
+    <div class="mt-10 space-y-4">
+      @for (item of faqs; track item.q) {
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+          <h3 class="text-base font-bold text-white">{{ item.q }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.a }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 14. CTA FINAL -->
 <section id="contato" class="bg-emerald-600 py-20">
   <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
-    <h2 class="text-3xl font-extrabold text-zinc-950 sm:text-4xl">Está pronta para transformar seu corpo?</h2>
+    <h2 class="text-3xl font-extrabold text-zinc-950 sm:text-4xl">Existem dois caminhos a partir daqui.</h2>
     <div class="mt-6 space-y-4 text-lg text-emerald-950/80">
-      <p>O primeiro passo é decidir que desta vez será diferente.</p>
       <p>
-        Se você quer emagrecer com acompanhamento profissional, treinos personalizados e um método pensado para gerar resultados reais, vamos conversar.
+        Você pode fechar esta página e continuar dizendo <strong class="text-zinc-950">“depois eu começo”</strong> — e daqui a alguns meses enfrentar as mesmas frustrações.
       </p>
-      <p class="font-semibold text-zinc-950">Clique no botão abaixo e comece hoje mesmo.</p>
+      <p>
+        Ou pode decidir que chegou o momento de parar de adiar o cuidado com você. Não porque alguém está cobrando. Não porque precisa de um corpo perfeito. Mas porque sua saúde, seu corpo e sua autoestima merecem prioridade.
+      </p>
     </div>
+
+    <p class="mt-10 text-sm font-semibold tracking-widest text-emerald-950/70 uppercase">
+      Talvez você tenha chegado até aqui porque está cansado de recomeçar.
+    </p>
+    <p class="mt-4 text-xl font-bold text-zinc-950 sm:text-2xl">
+      Não precisa ser mais uma tentativa.<br />
+      Pode ser o início de uma nova fase da sua vida.
+    </p>
+
     <a
       [href]="whatsappUrl"
       target="_blank"
       rel="noopener noreferrer"
-      class="mt-8 inline-flex items-center gap-3 rounded-full bg-zinc-950 px-10 py-4 text-sm font-bold tracking-wide text-white uppercase shadow-xl transition hover:bg-zinc-900"
+      class="mt-8 inline-flex max-w-full items-center justify-center gap-3 rounded-full bg-zinc-950 px-8 py-4 text-sm font-bold tracking-wide text-white uppercase shadow-xl transition hover:bg-zinc-900"
     >
-      Quero começar agora
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-      </svg>
+      Quero começar minha transformação
     </a>
-    <p class="mt-8 text-sm text-emerald-950/60">
-      Atendimento personalizado · Método Treino que Transforma · Resultados construídos com estratégia e consistência.
+
+    <p class="mt-8 text-sm font-semibold tracking-wide text-emerald-950/70">
+      CÁTIA SOARES · Emagrecimento · Transformação Corporal · Saúde · Autoestima
     </p>
   </div>
 </section>
@@ -390,8 +606,9 @@
 <!-- Footer -->
 <footer class="border-t border-zinc-800 bg-zinc-950 py-10">
   <div class="mx-auto max-w-7xl px-6 text-center lg:px-10">
-    <p class="text-lg font-bold text-white">Cátia Soares</p>
-    <p class="mt-1 text-sm text-emerald-400">Personal Trainer · Especialista em Emagrecimento Feminino</p>
+    <p class="text-lg font-bold text-white">Cátia Soares de Oliveira</p>
+    <p class="mt-1 text-sm text-emerald-400">Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição</p>
+    <p class="mt-1 text-sm text-zinc-500">Emagrecimento · Transformação Corporal · Saúde · Autoestima</p>
     <p class="mt-4 text-xs text-zinc-600">&copy; {{ year }} · Treino que Transforma</p>
   </div>
 </footer>
