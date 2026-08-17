@@ -1,4 +1,4 @@
-<!-- Header11 -->
+<!-- Header -->
 <header
   class="fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300"
   [class.border-b]="!menuOpen()"
@@ -8,11 +8,14 @@
   [class.border-transparent]="menuOpen()"
   [class.bg-transparent]="menuOpen()"
 >
-  <div class="mx-auto max-w-7xl px-6 py-4 lg:px-10">
+    <div class="mx-auto max-w-7xl px-6 py-4 lg:px-10 lg:py-5">
     <div class="flex items-center justify-between">
-      <a href="#inicio" class="relative z-[80] flex flex-col leading-none" (click)="closeMenu()">
-        <span class="text-base font-bold tracking-tight text-white lg:text-lg">Cátia Soares</span>
-        <span class="mt-1 text-[10px] font-semibold tracking-[0.25em] text-emerald-400 uppercase lg:text-[11px]">Personal</span>
+      <a href="#inicio" class="relative z-[80] flex items-center" (click)="closeMenu()">
+        <img
+          src="/logo.png"
+          alt="Catinha Personal — Especialista em Emagrecimento"
+          class="h-12 w-auto md:h-16 lg:h-20"
+        />
       </a>
 
       <nav class="hidden items-center gap-8 md:flex" aria-label="Menu principal">
@@ -107,7 +110,7 @@
 }
 
 <!-- 1. HERO -->
-<section id="inicio" class="relative overflow-hidden bg-zinc-950 pt-24">
+<section id="inicio" class="relative overflow-hidden bg-zinc-950 pt-24 lg:pt-32">
   <div class="pointer-events-none absolute inset-0">
     <div class="absolute -left-32 top-0 h-[600px] w-[600px] rounded-full bg-emerald-900/20 blur-3xl"></div>
     <div class="absolute -right-32 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-600/10 blur-3xl"></div>
@@ -606,8 +609,12 @@
 <!-- Footer -->
 <footer class="border-t border-zinc-800 bg-zinc-950 py-10">
   <div class="mx-auto max-w-7xl px-6 text-center lg:px-10">
-    <p class="text-lg font-bold text-white">Cátia Soares de Oliveira</p>
-    <p class="mt-1 text-sm text-emerald-400">Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição</p>
+    <img
+      src="/logo.png"
+      alt="Catinha Personal"
+      class="mx-auto h-16 w-auto md:h-20"
+    />
+    <p class="mt-4 text-sm text-emerald-400">Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição</p>
     <p class="mt-1 text-sm text-zinc-500">Emagrecimento · Transformação Corporal · Saúde · Autoestima</p>
     <p class="mt-4 text-xs text-zinc-600">&copy; {{ year }} · Treino que Transforma</p>
   </div>
