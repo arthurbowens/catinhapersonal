@@ -29,6 +29,7 @@ export class App {
   protected readonly navLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'Protocolo', href: '#metodo' },
+    { label: 'Parceria/Médica', href: '#multiprofissional' },
     { label: 'Resultados', href: '#resultados' },
     { label: 'Como funciona', href: '#como-funciona' },
     { label: 'Sobre', href: '#sobre' },
@@ -88,18 +89,20 @@ export class App {
     'Usado a comida como recompensa em momentos de ansiedade',
   ];
 
-  protected readonly cycleBad = ['COMEÇO', 'EMAGREÇO', 'RELAXO', 'ENGORDO', 'ME CULPO', 'RECOMEÇO'];
-  protected readonly cycleGood = ['DECISÃO', 'ESTRATÉGIA', 'CONSTÂNCIA', 'EVOLUÇÃO', 'NOVOS HÁBITOS'];
+  protected readonly cycleBadRows = [
+    ['COMEÇO', 'EMAGREÇO', 'RELAXO'],
+    ['ENGORDO', 'ME CULPO', 'RECOMEÇO'],
+  ];
+  protected readonly cycleGoodRows = [
+    ['DECISÃO', 'ESTRATÉGIA', 'CONSTÂNCIA'],
+    ['EVOLUÇÃO', 'NOVOS HÁBITOS', ''],
+  ];
 
-  protected readonly protocolOutcomes = [
-    'Emagrecimento',
-    'Redução de medidas',
-    'Condicionamento físico',
-    'Mais disposição',
-    'Melhora dos hábitos',
-    'Consistência',
-    'Confiança',
-    'Autoestima',
+  protected readonly protocolOutcomePairs = [
+    ['Emagrecimento', 'Redução de medidas'],
+    ['Condicionamento físico', 'Mais disposição'],
+    ['Melhora dos hábitos', 'Consistência'],
+    ['Confiança', 'Autoestima'],
   ];
 
   protected readonly protocolIncludes = [
@@ -116,7 +119,7 @@ export class App {
   protected readonly pillars = [
     {
       title: 'Não dependa da motivação. Construa disciplina.',
-      body: 'Motivação é importante para começar. Disciplina é o que sustenta o processo quando a motivação desaparece. Uma refeição fora do planejado não precisa virar uma semana inteira fora. Um treino perdido não precisa virar um mês sem treinar. Resultado não exige perfeição — exige consistência.',
+      body: 'Motivação é importante para começar. Disciplina é o que sustenta o processo quando a motivação desaparece. Uma refeição fora do planejado não precisa virar uma semana inteira fora. Um treino perdido não precisa virar um mês sem treinar. Resultado não exige perfeição, exige consistência.',
     },
     {
       title: 'Pare de se sabotar.',
@@ -174,7 +177,7 @@ export class App {
     'Sentir o corpo mais forte',
     'Subir uma escada sem o mesmo cansaço',
     'Perceber as medidas diminuindo',
-    'Escolher roupa pelo que gostou — e não só pelo que serviu',
+    'Escolher roupa pelo que gostou, e não só pelo que serviu',
     'Se olhar no espelho com orgulho',
     'Recuperar a confiança',
     'Perceber que você conseguiu voltar a cuidar de si',

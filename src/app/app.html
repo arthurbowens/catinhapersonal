@@ -13,7 +13,7 @@
       <a href="#inicio" class="relative z-[80] flex items-center" (click)="closeMenu()">
         <img
           src="/logo.png"
-          alt="Catinha Personal — Especialista em Emagrecimento"
+          alt="Catinha Personal, Especialista em Emagrecimento"
           class="h-12 w-auto md:h-16 lg:h-20"
         />
       </a>
@@ -125,7 +125,7 @@
 
         <h1 class="text-4xl leading-tight font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
           Treino que<br />
-          <span class="bg-gradient-to-r from-emerald-400 to-emerald-200 bg-clip-text text-transparent">Transforma</span>
+          <span class="text-emerald-400">Transforma</span>
         </h1>
 
         <p class="mt-4 text-lg font-semibold text-emerald-400 sm:text-xl">
@@ -136,8 +136,8 @@
           A sua transformação pode começar agora.
         </p>
 
-        <p class="mt-5 max-w-lg text-base leading-relaxed text-zinc-400">
-          Minha missão é ajudar homens e mulheres cansados de tentar emagrecer e não manter os resultados — a recuperar saúde, disposição, confiança e o prazer de se olhar no espelho novamente.
+        <p class="mt-5 max-w-lg text-base leading-relaxed text-white">
+          Minha missão é ajudar homens e mulheres cansados de tentar emagrecer e não manter os resultados, a recuperar saúde, disposição, confiança e o prazer de se olhar no espelho novamente.
         </p>
 
         <p class="mt-4 max-w-lg text-sm leading-relaxed text-zinc-500">
@@ -185,7 +185,7 @@
 <!-- 2. RECONHECIMENTO -->
 <section class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Você se reconhece aqui?</h2>
+    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Você se reconhece <span class="text-emerald-400">aqui?</span></h2>
     <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-400">
       <p>Você começa motivado na segunda-feira...</p>
       <p>Mas a rotina aperta. O cansaço chega. Você falta ao treino.</p>
@@ -223,28 +223,54 @@
       Você não precisa viver eternamente no ciclo:
     </p>
 
-    <div class="mt-8 grid gap-4 sm:grid-cols-2">
-      <div class="rounded-2xl border border-red-500/20 bg-zinc-900/60 p-5">
-        <p class="text-xs font-semibold tracking-widest text-red-400/80 uppercase">O ciclo que trava</p>
-        <div class="mt-3 flex flex-wrap gap-2">
-          @for (item of cycleBad; track item; let last = $last) {
-            <span class="rounded-md bg-zinc-800 px-2.5 py-1 text-xs font-semibold text-zinc-300">{{ item }}</span>
-            @if (!last) {
-              <span class="self-center text-zinc-600">→</span>
+  </div>
+
+  <div class="mx-auto mt-8 grid max-w-6xl items-stretch gap-5 px-6 lg:grid-cols-2 lg:px-10">
+    <div class="flex min-w-0 flex-col rounded-2xl border-2 border-red-500 bg-zinc-900/80 p-5 sm:p-6">
+      <p class="text-sm font-bold tracking-widest text-red-500 uppercase sm:text-base">O ciclo que trava</p>
+      <div class="mt-5 flex flex-1 flex-col justify-center gap-3 sm:gap-4">
+        @for (row of cycleBadRows; track $index) {
+          <div class="flex items-stretch gap-1.5 sm:gap-2">
+            @for (item of row; track $index; let i = $index) {
+              @if (item) {
+                <span
+                  class="flex min-w-0 flex-1 items-center justify-center rounded-lg border border-red-500/60 bg-red-500/15 px-2 py-3 text-center text-[10px] font-bold tracking-wide text-white uppercase sm:text-xs md:text-sm"
+                >
+                  {{ item }}
+                </span>
+                @if (row[i + 1]) {
+                  <span class="shrink-0 self-center text-base font-bold text-red-500 sm:text-xl">→</span>
+                }
+              } @else {
+                <span class="min-w-0 flex-1"></span>
+              }
             }
-          }
-        </div>
+          </div>
+        }
       </div>
-      <div class="rounded-2xl border border-emerald-500/30 bg-zinc-900/60 p-5">
-        <p class="text-xs font-semibold tracking-widest text-emerald-400 uppercase">O caminho que construímos</p>
-        <div class="mt-3 flex flex-wrap gap-2">
-          @for (item of cycleGood; track item; let last = $last) {
-            <span class="rounded-md bg-emerald-500/15 px-2.5 py-1 text-xs font-semibold text-emerald-300">{{ item }}</span>
-            @if (!last) {
-              <span class="self-center text-emerald-700">→</span>
+    </div>
+
+    <div class="flex min-w-0 flex-col rounded-2xl border-2 border-emerald-500 bg-zinc-900/80 p-5 sm:p-6">
+      <p class="text-sm font-bold tracking-widest text-emerald-400 uppercase sm:text-base">O caminho que construímos</p>
+      <div class="mt-5 flex flex-1 flex-col justify-center gap-3 sm:gap-4">
+        @for (row of cycleGoodRows; track $index) {
+          <div class="flex items-stretch gap-1.5 sm:gap-2">
+            @for (item of row; track $index; let i = $index) {
+              @if (item) {
+                <span
+                  class="flex min-w-0 flex-1 items-center justify-center rounded-lg border border-emerald-500/60 bg-emerald-500/15 px-2 py-3 text-center text-[10px] font-bold tracking-wide text-white uppercase sm:text-xs md:text-sm"
+                >
+                  {{ item }}
+                </span>
+                @if (row[i + 1]) {
+                  <span class="shrink-0 self-center text-base font-bold text-emerald-400 sm:text-xl">→</span>
+                }
+              } @else {
+                <span class="min-w-0 flex-1"></span>
+              }
             }
-          }
-        </div>
+          </div>
+        }
       </div>
     </div>
   </div>
@@ -272,17 +298,27 @@
       <p class="mt-6 text-sm font-semibold text-zinc-300">O objetivo é desenvolver uma rotina que favoreça:</p>
     </div>
 
-    <div class="mt-8 flex flex-wrap gap-3">
-      @for (item of protocolOutcomes; track item) {
-        <span class="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-300">
-          {{ item }}
-        </span>
+    <div class="mt-8 grid max-w-4xl grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
+      @for (pair of protocolOutcomePairs; track $index) {
+        <div class="flex items-stretch gap-2">
+          <span
+            class="flex min-w-0 flex-1 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-2.5 text-center text-sm font-semibold text-emerald-300"
+          >
+            {{ pair[0] }}
+          </span>
+          <span class="shrink-0 self-center text-lg font-bold text-emerald-400">→</span>
+          <span
+            class="flex min-w-0 flex-1 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-2.5 text-center text-sm font-semibold text-emerald-300"
+          >
+            {{ pair[1] }}
+          </span>
+        </div>
       }
     </div>
 
     <div class="mt-14 grid gap-10 lg:grid-cols-2">
       <div>
-        <p class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O protocolo pode envolver</p>
+        <p class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O protocolo envolve:</p>
         <ul class="mt-5 space-y-3">
           @for (item of protocolIncludes; track item) {
             <li class="flex items-start gap-3">
@@ -298,13 +334,14 @@
       </div>
 
       <div class="space-y-4 self-start">
-        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/50 p-6">
-          <p class="text-sm leading-relaxed text-zinc-400">
+        <div class="rounded-2xl border-2 border-emerald-400 bg-emerald-500/10 p-6">
+          <p class="text-xs font-bold tracking-widest text-emerald-400 uppercase">Importante</p>
+          <p class="mt-3 text-base leading-relaxed font-medium text-white">
             Exames laboratoriais, condutas nutricionais, suplementação, medicamentos, terapias injetáveis ou outras intervenções clínicas são avaliados e prescritos exclusivamente pelo profissional legalmente habilitado, quando indicados.
           </p>
         </div>
         <div class="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6">
-          <p class="text-lg font-bold text-white">Não é uma receita pronta.</p>
+          <p class="text-lg font-bold text-emerald-400">Não é uma receita pronta.</p>
           <p class="mt-2 text-base font-semibold text-emerald-400">É uma estratégia construída para você.</p>
           <a
             [href]="whatsappAssessmentUrl"
@@ -326,7 +363,7 @@
     <div class="max-w-3xl">
       <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Parceria</span>
       <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
-        Emagrecimento com uma visão multiprofissional
+        Emagrecimento com uma visão <span class="text-emerald-400">multiprofissional</span>
       </h2>
       <p class="mt-6 text-base leading-relaxed text-zinc-400">
         Em determinados casos, emagrecer exige olhar além do treino e dos hábitos.
@@ -363,7 +400,7 @@
           <ul class="mt-4 space-y-2 text-sm text-zinc-400">
             <li>• Pós-graduanda em Endocrinologia e Metabologia</li>
             <li>• Imersão em suplementação de vitaminas, nutrição e longevidade</li>
-            <li>• Pós-graduada em Medicina Familiar — UFMG</li>
+            <li>• Pós-graduada em Medicina Familiar, UFMG</li>
           </ul>
         </div>
 
@@ -433,12 +470,12 @@
 <section class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="mb-12 max-w-2xl">
-      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que sustenta a transformação</h2>
+      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que sustenta a <span class="text-emerald-400">transformação</span></h2>
     </div>
     <div class="grid gap-6 lg:grid-cols-3">
       @for (item of pillars; track item.title) {
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
-          <h3 class="text-lg font-bold text-white">{{ item.title }}</h3>
+          <h3 class="text-lg font-bold text-emerald-400">{{ item.title }}</h3>
           <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.body }}</p>
         </div>
       }
@@ -450,7 +487,7 @@
 <section id="como-funciona" class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="mb-14 text-center">
-      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Como funciona?</h2>
+      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Como <span class="text-emerald-400">funciona?</span></h2>
       <p class="mt-3 text-zinc-400">O processo começa entendendo você.</p>
     </div>
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -459,7 +496,7 @@
           <span class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-sm font-extrabold text-zinc-950">
             {{ item.step }}
           </span>
-          <h3 class="mt-4 text-lg font-bold text-white">{{ item.title }}</h3>
+          <h3 class="mt-4 text-lg font-bold text-emerald-400">{{ item.title }}</h3>
           <p class="mt-2 text-sm leading-relaxed text-zinc-400">{{ item.description }}</p>
         </div>
       }
@@ -470,7 +507,7 @@
 <!-- 9. O QUE CONSTRUIR -->
 <section class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que você pode construir nesse processo?</h2>
+    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que você pode construir <span class="text-emerald-400">nesse processo?</span></h2>
     <p class="mt-4 text-zinc-400">
       Não quero que você pense apenas: <span class="text-zinc-300">“Quantos quilos vou perder?”</span>
       Quero que imagine como seria:
@@ -499,7 +536,7 @@
       </div>
       <div>
         <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Quem vai acompanhar você?</span>
-        <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Cátia Soares de Oliveira</h2>
+        <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Cátia Soares <span class="text-emerald-400">de Oliveira</span></h2>
         <p class="mt-4 text-sm text-zinc-400">
           Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição
         </p>
@@ -507,7 +544,7 @@
           <p class="font-medium text-zinc-200">Minha missão profissional vai muito além de prescrever exercícios.</p>
           <p class="text-lg font-semibold text-emerald-400">Eu sou apaixonada por transformação.</p>
           <p>
-            Transformação de corpos, hábitos, autoestima, saúde — e, principalmente, de vidas. Por trás de cada corpo que deseja mudar, existe alguém querendo recuperar confiança, saúde, disposição ou simplesmente a sensação de voltar a gostar de si.
+            Transformação de corpos, hábitos, autoestima, saúde, e, principalmente, de vidas. Por trás de cada corpo que deseja mudar, existe alguém querendo recuperar confiança, saúde, disposição ou simplesmente a sensação de voltar a gostar de si.
           </p>
           <p class="font-medium text-zinc-300">É por isso que faço o que faço.</p>
         </div>
@@ -519,7 +556,7 @@
 <!-- 11. OBJEÇÕES -->
 <section class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Ainda tem resistência?</h2>
+    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Ainda tem <span class="text-emerald-400">resistência?</span></h2>
     <div class="mt-10 space-y-4">
       @for (item of objections; track item.q) {
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
@@ -534,7 +571,7 @@
 <!-- 12. DECISÃO -->
 <section class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
-    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Sua transformação começa com uma decisão.</h2>
+    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Sua transformação começa com <span class="text-emerald-400">uma decisão.</span></h2>
     <div class="mt-6 space-y-3 text-zinc-400">
       <p>Você não precisa esperar a próxima segunda-feira.</p>
       <p>Não precisa esperar o próximo mês.</p>
@@ -558,11 +595,11 @@
 <!-- 13. FAQ -->
 <section id="faq" class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Dúvidas frequentes</h2>
+    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Dúvidas <span class="text-emerald-400">frequentes</span></h2>
     <div class="mt-10 space-y-4">
       @for (item of faqs; track item.q) {
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <h3 class="text-base font-bold text-white">{{ item.q }}</h3>
+          <h3 class="text-base font-bold text-emerald-400">{{ item.q }}</h3>
           <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.a }}</p>
         </div>
       }
@@ -576,7 +613,7 @@
     <h2 class="text-3xl font-extrabold text-zinc-950 sm:text-4xl">Existem dois caminhos a partir daqui.</h2>
     <div class="mt-6 space-y-4 text-lg text-emerald-950/80">
       <p>
-        Você pode fechar esta página e continuar dizendo <strong class="text-zinc-950">“depois eu começo”</strong> — e daqui a alguns meses enfrentar as mesmas frustrações.
+        Você pode fechar esta página e continuar dizendo <strong class="text-zinc-950">“depois eu começo”</strong>, e daqui a alguns meses enfrentar as mesmas frustrações.
       </p>
       <p>
         Ou pode decidir que chegou o momento de parar de adiar o cuidado com você. Não porque alguém está cobrando. Não porque precisa de um corpo perfeito. Mas porque sua saúde, seu corpo e sua autoestima merecem prioridade.
