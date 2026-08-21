@@ -20,7 +20,7 @@
 
       <nav class="hidden items-center gap-8 md:flex" aria-label="Menu principal">
         @for (link of navLinks; track link.href) {
-          <a [href]="link.href" class="text-sm font-medium text-zinc-400 transition hover:text-white">
+          <a [href]="link.href" class="text-sm font-medium text-zinc-200 transition hover:text-white">
             {{ link.label }}
           </a>
         }
@@ -71,7 +71,7 @@
       </div>
       <button
         type="button"
-        class="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"
+        class="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 text-zinc-200 transition hover:border-zinc-700 hover:text-white"
         (click)="closeMenu()"
         aria-label="Fechar menu"
       >
@@ -140,7 +140,7 @@
           Minha missão é ajudar homens e mulheres cansados de tentar emagrecer e não manter os resultados, a recuperar saúde, disposição, confiança e o prazer de se olhar no espelho novamente.
         </p>
 
-        <p class="mt-4 max-w-lg text-sm leading-relaxed text-zinc-500">
+        <p class="mt-4 max-w-lg text-sm leading-relaxed text-zinc-100">
           Aqui você encontra um protocolo individual com estratégia, acompanhamento e mudança de hábitos. Não é só perder peso: é transformar corpo, saúde e vida.
         </p>
 
@@ -157,7 +157,7 @@
             [href]="whatsappMethodUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-7 py-3.5 text-sm font-semibold tracking-wide text-zinc-300 uppercase transition hover:border-emerald-500/50 hover:text-white"
+            class="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-7 py-3.5 text-sm font-semibold tracking-wide text-zinc-100 uppercase transition hover:border-emerald-500/50 hover:text-white"
           >
             Conhecer o protocolo
           </a>
@@ -169,7 +169,7 @@
           <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-transparent blur-2xl"></div>
           <div class="relative overflow-hidden rounded-3xl ring-1 ring-emerald-500/20">
             <img
-              src="/foto1.jpg"
+              src="/foto1.jpeg"
               alt="Cátia Soares"
               class="aspect-[3/4] w-full object-cover object-top"
               width="600"
@@ -184,45 +184,74 @@
 
 <!-- 2. RECONHECIMENTO -->
 <section class="border-y border-zinc-800 bg-zinc-900 py-20">
-  <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-center text-3xl font-extrabold text-white sm:text-4xl">Você se reconhece <span class="text-emerald-400">aqui?</span></h2>
-    <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-400">
-      <p>Você começa motivado na segunda-feira...</p>
-      <p>Mas a rotina aperta. O cansaço chega. Você falta ao treino.</p>
-      <p>Sai da alimentação uma vez e pensa: <span class="text-zinc-300">“já estraguei tudo mesmo...”</span></p>
-      <p>Então vem a culpa. Você promete que amanhã recomeça. Depois, na próxima segunda. Depois, no próximo mês.</p>
-      <p class="font-medium text-emerald-400">E o ciclo continua.</p>
-    </div>
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Você se reconhece <span class="text-emerald-400">aqui?</span></h2>
+        <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-200">
+          <p>Você começa motivado na segunda-feira...</p>
+          <p>Mas a rotina aperta. O cansaço chega. Você falta ao treino.</p>
+          <p>Sai da alimentação uma vez e pensa: <span class="text-zinc-100">“já estraguei tudo mesmo...”</span></p>
+          <p>Então vem a culpa. Você promete que amanhã recomeça. Depois, na próxima segunda. Depois, no próximo mês.</p>
+          <p class="font-medium text-emerald-400">E o ciclo continua.</p>
+        </div>
 
-    <p class="mt-10 text-sm font-semibold tracking-widest text-zinc-500 uppercase">Talvez você já tenha:</p>
-    <ul class="mt-4 space-y-3">
-      @for (item of recognitionItems; track item) {
-        <li class="flex items-start gap-3">
-          <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span>
-          <span class="text-zinc-300">{{ item }}</span>
-        </li>
-      }
-    </ul>
+        <p class="mt-10 text-sm font-semibold tracking-widest text-zinc-100 uppercase">Talvez você já tenha:</p>
+        <ul class="mt-4 space-y-3">
+          @for (item of recognitionItems; track item) {
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span>
+              <span class="text-zinc-100">{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-transparent blur-2xl"></div>
+        <div class="relative overflow-hidden rounded-3xl ring-1 ring-emerald-500/20">
+          <img
+            src="/foto3.jpeg"
+            alt="Cátia Soares"
+            class="aspect-[3/4] w-full object-cover object-[center_20%]"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- 3. ALÉM DA BALANÇA -->
 <section class="bg-zinc-950 py-20">
-  <div class="mx-auto max-w-3xl px-6 lg:px-10">
-    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-      Emagrecer não é apenas<br />
-      <span class="text-emerald-400">“fechar a boca”</span>
-    </h2>
-    <p class="mt-6 text-base leading-relaxed text-zinc-400">
-      O excesso de peso não acontece isolado da sua vida. Existe rotina, hábitos, sedentarismo, finais de semana que viram desculpas, o “só hoje”, falta de planejamento e a dificuldade de manter disciplina quando a motivação desaparece.
-    </p>
-    <p class="mt-4 text-base leading-relaxed text-zinc-300">
-      Por isso uma transformação consistente precisa olhar além da balança.
-    </p>
-    <p class="mt-4 text-base leading-relaxed text-zinc-400">
-      Você não precisa viver eternamente no ciclo:
-    </p>
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-transparent blur-2xl"></div>
+        <div class="relative overflow-hidden rounded-3xl ring-1 ring-emerald-500/20">
+          <img
+            src="/foto4.jpeg"
+            alt="Cátia Soares"
+            class="aspect-[3/4] w-full object-cover object-[center_20%]"
+          />
+        </div>
+      </div>
 
+      <div>
+        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+          Emagrecer não é apenas<br />
+          <span class="text-emerald-400">“fechar a boca”</span>
+        </h2>
+        <p class="mt-6 text-base leading-relaxed text-zinc-200">
+          O excesso de peso não acontece isolado da sua vida. Existe rotina, hábitos, sedentarismo, finais de semana que viram desculpas, o “só hoje”, falta de planejamento e a dificuldade de manter disciplina quando a motivação desaparece.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-zinc-100">
+          Por isso uma transformação consistente precisa olhar além da balança.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-zinc-200">
+          Você não precisa viver eternamente no ciclo:
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="mx-auto mt-8 grid max-w-6xl items-stretch gap-5 px-6 lg:grid-cols-2 lg:px-10">
@@ -279,23 +308,36 @@
 <!-- 4. PROTOCOLO -->
 <section id="metodo" class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="max-w-3xl">
-      <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O Protocolo</span>
-      <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
-        Não é apenas sobre perder peso.<br />
-        <span class="text-emerald-400">É sobre mudar a direção da sua vida.</span>
-      </h2>
-      <p class="mt-4 text-lg font-semibold text-zinc-200">Um protocolo que olha para você de forma integrada.</p>
-      <p class="mt-6 text-base leading-relaxed text-zinc-400">
-        O Protocolo Individual de Emagrecimento foi pensado para homens e mulheres que desejam sair das tentativas aleatórias e começar um processo estruturado de transformação corporal.
-      </p>
-      <p class="mt-4 text-base leading-relaxed text-zinc-400">
-        Emagrecimento não se resume a comer menos e treinar mais. Por trás de cada pessoa existe uma história, uma rotina, dificuldades, hábitos, tentativas anteriores, objetivos e necessidades diferentes.
-      </p>
-      <p class="mt-4 text-base leading-relaxed text-zinc-300">
-        Por isso, o protocolo começa com uma avaliação individualizada, para entendermos seu ponto de partida e definirmos uma estratégia segura e direcionada aos seus objetivos.
-      </p>
-      <p class="mt-6 text-sm font-semibold text-zinc-300">O objetivo é desenvolver uma rotina que favoreça:</p>
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">O Protocolo</span>
+        <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+          Não é apenas sobre perder peso.<br />
+          <span class="text-emerald-400">É sobre mudar a direção da sua vida.</span>
+        </h2>
+        <p class="mt-4 text-lg font-semibold text-zinc-200">Um protocolo que olha para você de forma integrada.</p>
+        <p class="mt-6 text-base leading-relaxed text-zinc-200">
+          O Protocolo Individual de Emagrecimento foi pensado para homens e mulheres que desejam sair das tentativas aleatórias e começar um processo estruturado de transformação corporal.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-zinc-200">
+          Emagrecimento não se resume a comer menos e treinar mais. Por trás de cada pessoa existe uma história, uma rotina, dificuldades, hábitos, tentativas anteriores, objetivos e necessidades diferentes.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-zinc-100">
+          Por isso, o protocolo começa com uma avaliação individualizada, para entendermos seu ponto de partida e definirmos uma estratégia segura e direcionada aos seus objetivos.
+        </p>
+        <p class="mt-6 text-sm font-semibold text-zinc-100">O objetivo é desenvolver uma rotina que favoreça:</p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-transparent blur-2xl"></div>
+        <div class="relative overflow-hidden rounded-3xl ring-1 ring-emerald-500/20">
+          <img
+            src="/foto5.jpeg"
+            alt="Cátia Soares"
+            class="aspect-[3/4] w-full object-cover object-[center_20%]"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="mt-8 grid max-w-4xl grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
@@ -327,7 +369,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <span class="text-sm text-zinc-300">{{ item }}</span>
+              <span class="text-sm text-zinc-100">{{ item }}</span>
             </li>
           }
         </ul>
@@ -365,13 +407,13 @@
       <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
         Emagrecimento com uma visão <span class="text-emerald-400">multiprofissional</span>
       </h2>
-      <p class="mt-6 text-base leading-relaxed text-zinc-400">
+      <p class="mt-6 text-base leading-relaxed text-zinc-200">
         Em determinados casos, emagrecer exige olhar além do treino e dos hábitos.
       </p>
-      <p class="mt-4 text-base leading-relaxed text-zinc-400">
+      <p class="mt-4 text-base leading-relaxed text-zinc-200">
         Por isso, o protocolo conta com a possibilidade de avaliação médica especializada em parceria, quando houver necessidade clínica.
       </p>
-      <p class="mt-4 text-base leading-relaxed text-zinc-300">
+      <p class="mt-4 text-base leading-relaxed text-zinc-100">
         O objetivo é proporcionar um acompanhamento mais completo, respeitando as atribuições de cada profissional.
       </p>
     </div>
@@ -387,27 +429,27 @@
 
       <div>
         <p class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Avaliação médica quando indicada</p>
-        <p class="mt-4 text-base leading-relaxed text-zinc-400">
+        <p class="mt-4 text-base leading-relaxed text-zinc-200">
           A médica parceira poderá avaliar individualmente aspectos clínicos e metabólicos, histórico de saúde, exames laboratoriais e, quando houver indicação médica, definir as condutas terapêuticas adequadas.
         </p>
-        <p class="mt-4 text-sm leading-relaxed text-zinc-500">
+        <p class="mt-4 text-sm leading-relaxed text-zinc-100">
           Medicamentos e terapias injetáveis não são utilizados de forma automática no protocolo. Qualquer indicação depende de avaliação médica individualizada.
         </p>
 
         <div class="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
           <p class="text-xl font-bold text-white">Dra. Isis Santiago Brandão</p>
           <p class="mt-1 text-sm font-medium text-emerald-400">Médica · CRM/MG 109386</p>
-          <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+          <ul class="mt-4 space-y-2 text-sm text-zinc-200">
             <li>• Pós-graduanda em Endocrinologia e Metabologia</li>
             <li>• Imersão em suplementação de vitaminas, nutrição e longevidade</li>
             <li>• Pós-graduada em Medicina Familiar, UFMG</li>
           </ul>
         </div>
 
-        <p class="mt-8 text-sm font-semibold tracking-wide text-zinc-300 uppercase">
+        <p class="mt-8 text-sm font-semibold tracking-wide text-zinc-100 uppercase">
           Treino · Hábitos · Acompanhamento · Suporte multiprofissional
         </p>
-        <p class="mt-2 text-zinc-500">Uma estratégia construída de acordo com as necessidades de cada pessoa.</p>
+        <p class="mt-2 text-zinc-100">Uma estratégia construída de acordo com as necessidades de cada pessoa.</p>
       </div>
     </div>
   </div>
@@ -423,7 +465,7 @@
           Não acredite apenas no que eu digo.<br />
           <span class="text-emerald-400">Veja quem decidiu começar.</span>
         </h2>
-        <p class="mt-4 text-zinc-400">
+        <p class="mt-4 text-zinc-200">
           Quem segue o protocolo conquista muito mais do que emagrecimento: autoestima, confiança, disposição e a sensação de voltar a se sentir bem com o próprio corpo.
         </p>
       </div>
@@ -431,7 +473,7 @@
       <div class="hidden shrink-0 gap-2 sm:flex">
         <button
           type="button"
-          class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition hover:border-emerald-500/50 hover:text-white"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-100 transition hover:border-emerald-500/50 hover:text-white"
           (click)="scrollResults(-1)"
           aria-label="Anterior"
         >
@@ -439,7 +481,7 @@
         </button>
         <button
           type="button"
-          class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition hover:border-emerald-500/50 hover:text-white"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-100 transition hover:border-emerald-500/50 hover:text-white"
           (click)="scrollResults(1)"
           aria-label="Próximo"
         >
@@ -462,7 +504,7 @@
         </article>
       }
     </div>
-    <p class="mt-4 text-center text-sm text-zinc-500 sm:hidden">Deslize para o lado →</p>
+    <p class="mt-4 text-center text-sm text-zinc-100 sm:hidden">Deslize para o lado →</p>
   </div>
 </section>
 
@@ -476,7 +518,7 @@
       @for (item of pillars; track item.title) {
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
           <h3 class="text-lg font-bold text-emerald-400">{{ item.title }}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.body }}</p>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-200">{{ item.body }}</p>
         </div>
       }
     </div>
@@ -488,7 +530,7 @@
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="mb-14 text-center">
       <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Como <span class="text-emerald-400">funciona?</span></h2>
-      <p class="mt-3 text-zinc-400">O processo começa entendendo você.</p>
+      <p class="mt-3 text-zinc-200">O processo começa entendendo você.</p>
     </div>
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       @for (item of steps; track item.step) {
@@ -497,7 +539,7 @@
             {{ item.step }}
           </span>
           <h3 class="mt-4 text-lg font-bold text-emerald-400">{{ item.title }}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-400">{{ item.description }}</p>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-200">{{ item.description }}</p>
         </div>
       }
     </div>
@@ -508,8 +550,8 @@
 <section class="bg-zinc-950 py-20">
   <div class="mx-auto max-w-3xl px-6 lg:px-10">
     <h2 class="text-3xl font-extrabold text-white sm:text-4xl">O que você pode construir <span class="text-emerald-400">nesse processo?</span></h2>
-    <p class="mt-4 text-zinc-400">
-      Não quero que você pense apenas: <span class="text-zinc-300">“Quantos quilos vou perder?”</span>
+    <p class="mt-4 text-zinc-200">
+      Não quero que você pense apenas: <span class="text-zinc-100">“Quantos quilos vou perder?”</span>
       Quero que imagine como seria:
     </p>
     <ul class="mt-8 space-y-3">
@@ -520,7 +562,7 @@
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
             </svg>
           </span>
-          <span class="text-sm text-zinc-300">{{ item }}</span>
+          <span class="text-sm text-zinc-100">{{ item }}</span>
         </li>
       }
     </ul>
@@ -537,16 +579,16 @@
       <div>
         <span class="text-sm font-semibold tracking-widest text-emerald-400 uppercase">Quem vai acompanhar você?</span>
         <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Cátia Soares <span class="text-emerald-400">de Oliveira</span></h2>
-        <p class="mt-4 text-sm text-zinc-400">
+        <p class="mt-4 text-sm text-zinc-200">
           Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição
         </p>
-        <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-400">
+        <div class="mt-8 space-y-4 text-base leading-relaxed text-zinc-200">
           <p class="font-medium text-zinc-200">Minha missão profissional vai muito além de prescrever exercícios.</p>
           <p class="text-lg font-semibold text-emerald-400">Eu sou apaixonada por transformação.</p>
           <p>
             Transformação de corpos, hábitos, autoestima, saúde, e, principalmente, de vidas. Por trás de cada corpo que deseja mudar, existe alguém querendo recuperar confiança, saúde, disposição ou simplesmente a sensação de voltar a gostar de si.
           </p>
-          <p class="font-medium text-zinc-300">É por isso que faço o que faço.</p>
+          <p class="font-medium text-zinc-100">É por isso que faço o que faço.</p>
         </div>
       </div>
     </div>
@@ -561,7 +603,7 @@
       @for (item of objections; track item.q) {
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
           <h3 class="text-base font-bold text-emerald-400">{{ item.q }}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.a }}</p>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-200">{{ item.a }}</p>
         </div>
       }
     </div>
@@ -572,7 +614,7 @@
 <section class="border-y border-zinc-800 bg-zinc-900 py-20">
   <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
     <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Sua transformação começa com <span class="text-emerald-400">uma decisão.</span></h2>
-    <div class="mt-6 space-y-3 text-zinc-400">
+    <div class="mt-6 space-y-3 text-zinc-200">
       <p>Você não precisa esperar a próxima segunda-feira.</p>
       <p>Não precisa esperar o próximo mês.</p>
       <p>Não precisa esperar a motivação aparecer.</p>
@@ -586,7 +628,7 @@
     >
       Quero conhecer o protocolo
     </a>
-    <p class="mt-4 text-sm text-zinc-500">
+    <p class="mt-4 text-sm text-zinc-100">
       Ao clicar, você será direcionado para o atendimento para receber as informações e entender se o protocolo faz sentido para o seu objetivo.
     </p>
   </div>
@@ -600,7 +642,7 @@
       @for (item of faqs; track item.q) {
         <div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
           <h3 class="text-base font-bold text-emerald-400">{{ item.q }}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-zinc-400">{{ item.a }}</p>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-200">{{ item.a }}</p>
         </div>
       }
     </div>
@@ -611,7 +653,7 @@
 <section id="contato" class="bg-emerald-600 py-20">
   <div class="mx-auto max-w-3xl px-6 text-center lg:px-10">
     <h2 class="text-3xl font-extrabold text-zinc-950 sm:text-4xl">Existem dois caminhos a partir daqui.</h2>
-    <div class="mt-6 space-y-4 text-lg text-emerald-950/80">
+    <div class="mt-6 space-y-4 text-lg text-zinc-950">
       <p>
         Você pode fechar esta página e continuar dizendo <strong class="text-zinc-950">“depois eu começo”</strong>, e daqui a alguns meses enfrentar as mesmas frustrações.
       </p>
@@ -620,7 +662,7 @@
       </p>
     </div>
 
-    <p class="mt-10 text-sm font-semibold tracking-widest text-emerald-950/70 uppercase">
+    <p class="mt-10 text-sm font-semibold tracking-widest text-zinc-900 uppercase">
       Talvez você tenha chegado até aqui porque está cansado de recomeçar.
     </p>
     <p class="mt-4 text-xl font-bold text-zinc-950 sm:text-2xl">
@@ -637,7 +679,7 @@
       Quero começar minha transformação
     </a>
 
-    <p class="mt-8 text-sm font-semibold tracking-wide text-emerald-950/70">
+    <p class="mt-8 text-sm font-semibold tracking-wide text-zinc-900">
       CÁTIA SOARES · Emagrecimento · Transformação Corporal · Saúde · Autoestima
     </p>
   </div>
@@ -652,8 +694,8 @@
       class="mx-auto h-16 w-auto md:h-20"
     />
     <p class="mt-4 text-sm text-emerald-400">Bacharel em Educação Física · CREF MG-021179 · Graduanda em Nutrição</p>
-    <p class="mt-1 text-sm text-zinc-500">Emagrecimento · Transformação Corporal · Saúde · Autoestima</p>
-    <p class="mt-4 text-xs text-zinc-600">&copy; {{ year }} · Treino que Transforma</p>
+    <p class="mt-1 text-sm text-zinc-100">Emagrecimento · Transformação Corporal · Saúde · Autoestima</p>
+    <p class="mt-4 text-xs text-zinc-400">&copy; {{ year }} · Treino que Transforma</p>
   </div>
 </footer>
 
